@@ -21,43 +21,43 @@ var question = {
       {
 
         "question": "9 steps to awesome with Kubernetes/OpenShift (Burr Sutter)",
-    },
+      },
     {
 
       "question": "What's the magic behind Quarkus, and how can I help (myself)? (Edson Yanaga)",
+    },
+    {
+
+    "question": "Sail into cloud :: Introduction to Istio (Kamesh Sampath)",
+    },
+    {
+
+  "question": "Dreaming of streaming with Reactive programming (Edson Yanaga)",
+   },
+   {
+
+  "question": "Kubernetes serverless application architecture (Burr Sutter)",
+   },
+   {
+
+  "question": "Java microservices: Being a cloud ultra-native (Burr Sutter)",
+   },
+   {
+
+  "question": "Java microservices: Being a cloud ultra-native (Burr Sutter)",
+   },
+  {
+
+  "question": "Cloud-native integration patterns: Kubernetes and Camel K (Kamesh Sampath)",
   },
   {
 
-    "question": "Sail into cloud :: Introduction to Istio (Kamesh Sampath)",
-},
-{
-
-  "question": "Dreaming of streaming with Reactive programming (Edson Yanaga)",
-},
-{
-
-  "question": "Kubernetes serverless application architecture (Burr Sutter)",
-},
-{
-
-  "question": "Java microservices: Being a cloud ultra-native (Burr Sutter)",
-},
-{
-
-  "question": "Java microservices: Being a cloud ultra-native (Burr Sutter)",
-},
-{
-
-  "question": "Cloud-native integration patterns: Kubernetes and Camel K (Kamesh Sampath)",
-},
-{
-
   "question": "Apache Kafka Streams and event-driven microservices/architecture (Edson Yanaga)",
-},
-{
+  },
+  {
 
   "question": "Plumbing Kubernetes CI/CD with Tekton (Kamesh Sampath)",
-},
+  },
 
 
     {
@@ -88,11 +88,6 @@ var question = {
 
     "question": "Would you be interested in an exclusive workshop at your Development Centers? If so, please provide us with a point of contact (name, email, and phone) so we can reach out</p>",
   }
-   
-
-  
-
-     
   ]
 
 }
@@ -148,7 +143,7 @@ $("#mobilenum").keyup(function(event) {
   }
 });
 
-
+var c = "";
 function post_phone(){
   $.ajax({
     url:REGISTRATION_URL,
@@ -165,7 +160,7 @@ function post_phone(){
         bookingId= data.booking_id;
         
         localStorage.setItem(bookingId, (bookingId));
-        console.log(bookingId);
+        c = bookingId ;
         if(mobileNum=="")
         {
             data.registered_user=0;
@@ -186,12 +181,8 @@ function post_phone(){
   });
 }
 
-var c= localStorage.getItem("bookingId");
-
-console.log(c);
 
 function send_feedback(i){
-   c = c.replace(/^"(.*)"$/, '$1');
   var json_data={
     "booking_id": c,
 
@@ -199,7 +190,7 @@ function send_feedback(i){
     "question_number":current+1,
     "feedback": i
   }
-  console.log(json_data);
+  //console.log(json_data);
   $.ajax({
     url:UPDATE_FEEDBACK_URL,
     type: "POST",
@@ -215,7 +206,7 @@ function send_feedback(i){
 }
 function getAnswer()
 {   
-  console.log( current );
+  //console.log( current );
     document.getElementById("feedbackquestion").style.display="none";
     var q = question.questions;
    
@@ -281,13 +272,13 @@ var q=question.questions;
 
 function lastQuestion(){
   $.ajax({
-    url:"https://y5gem8l24h.execute-api.us-east-1.amazonaws.com/quiz/update_goodies",
-    type: "POST",
-    data: JSON.stringify({"Phone":mobileNum, "last_question":1,"event_name":event_name}),
-    contentType: "json",
+    url:"https://ef8ayu2u81.execute-api.us-east-2.amazonaws.com/app/goodies",
+    type: "PUT",
+    data: JSON.stringify({"event_name":event_name, "booking_id": bookingId, "last_question": 1}),
+    contentType: "application/json",
     success: function (data) {
-      //console.log(data);
-}
+      console.log(data);
+  }
 });
 }
 
