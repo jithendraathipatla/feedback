@@ -148,10 +148,11 @@ $("#mobilenum").keyup(function(event) {
 var c = "";
 function post_phone(){
   $.ajax({
-    url:REGISTRATION_URL+"?phone_number="+mobileNum+"&event_name=testkonfhub-morefields1",
+    url:REGISTRATION_URL+"?phone_number="+mobileNum+"&event_name=testkonfhub-php-ban963c6ec2",
     type: "GET",
     contentType: "application/json",
     success: function (data) {
+      console.log(data);
       document.getElementById("spinner").style.display="none";
         if(data==400){
           document.getElementById("error-area").style.display = "block";
