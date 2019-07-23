@@ -4,9 +4,11 @@ var phone;
 var email;
 var company;
 var Tshirt;
-var event_name = "kotlin";
-var REGISTRATION_URL= 'https://y5gem8l24h.execute-api.us-east-1.amazonaws.com/quiz/feedback_verify_phone_number';
-var UPDATE_FEEDBACK_URL='https://y5gem8l24h.execute-api.us-east-1.amazonaws.com/quiz/update_rds';
+var bookingId;
+var event_name = "testkonfhub-genric6756c1f3";
+
+var REGISTRATION_URL= 'https://ef8ayu2u81.execute-api.us-east-2.amazonaws.com/app/feedback?phone_number=0976543212';
+var UPDATE_FEEDBACK_URL='https://ef8ayu2u81.execute-api.us-east-2.amazonaws.com/app/feedback';
 var question = {
     
   "questions": [
@@ -164,16 +166,18 @@ $("#mobilenum").keyup(function(event) {
 function post_phone(){
   $.ajax({
     url:REGISTRATION_URL,
-    type: "POST",
-    data: JSON.stringify({"Phone":mobileNum,"event_name":event_name}),
-    contentType: "json",
+    type: "GET",
+    data: ({"Phone":mobileNum,"event_name":event_name}),
+    contentType: "application/json",
     success: function (data) {
       document.getElementById("spinner").style.display="none";
-        //console.log(data);
+        console.log(data);
         Tshirt=data.t_shirt;
         email=data.name;
         phone=data.phone;
-        company=data.company;
+        company=data.organisation;
+        bookingId= data.booking_id;
+        localStorage.setItem('bookingId', JSON.stringify(bookingId));
         if(mobileNum=="")
         {
             data.registered_user=0;
