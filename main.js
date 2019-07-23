@@ -4,7 +4,7 @@ var phone;
 var email;
 var company;
 var Tshirt;
-var bookingId;
+var bookingId= "";
 var event_name = "testkonfhub-genric6756c1f3";
 
 var REGISTRATION_URL= 'https://ef8ayu2u81.execute-api.us-east-2.amazonaws.com/app/feedback?phone_number=0976543212';
@@ -177,7 +177,9 @@ function post_phone(){
         phone=data.phone;
         company=data.organisation;
         bookingId= data.booking_id;
-        localStorage.setItem('bookingId', JSON.stringify(bookingId));
+        
+        localStorage.setItem(bookingId, (bookingId));
+        console.log(bookingId);
         if(mobileNum=="")
         {
             data.registered_user=0;
@@ -198,17 +200,18 @@ function post_phone(){
   });
 }
 
-var c= localStorage.getItem('bookingId');
+var c= localStorage.getItem("bookingId");
+
 console.log(c);
 
 function send_feedback(i){
+   c = c.replace(/^"(.*)"$/, '$1');
   var json_data={
-    "Phone":mobileNum,
-    "QuestionNumber":current+1,
-    "Feedback":i,
-    "EmailId":email,
-    "Company":company,
-    "event_name":event_name
+    "booking_id": c,
+
+    "event_name": event_name ,
+    "question_number":current+1,
+    "feedback": i
   }
   console.log(json_data);
   $.ajax({
@@ -217,6 +220,7 @@ function send_feedback(i){
     data: JSON.stringify(json_data),
     contentType: "json",
     success: function (data) {
+      //console.log(data);
   }
 
 
