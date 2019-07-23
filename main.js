@@ -198,6 +198,8 @@ function post_phone(){
   });
 }
 
+var c= localStorage.getItem('bookingId');
+console.log(c);
 
 function send_feedback(i){
   var json_data={
