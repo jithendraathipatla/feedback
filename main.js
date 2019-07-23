@@ -7,7 +7,7 @@ var Tshirt;
 var bookingId= "";
 var event_name = "testkonfhub-genric6756c1f3";
 
-var REGISTRATION_URL= 'https://ef8ayu2u81.execute-api.us-east-2.amazonaws.com/app/feedback?phone_number=0976543212';
+var REGISTRATION_URL= 'https://ef8ayu2u81.execute-api.us-east-2.amazonaws.com/app/feedback';
 var UPDATE_FEEDBACK_URL='https://ef8ayu2u81.execute-api.us-east-2.amazonaws.com/app/feedback';
 var question = {
     
@@ -54,10 +54,10 @@ var question = {
 
   "question": "Apache Kafka Streams and event-driven microservices/architecture (Edson Yanaga)",
   },
-  {
+    {
 
-  "question": "Plumbing Kubernetes CI/CD with Tekton (Kamesh Sampath)",
-  },
+      "question": "Plumbing Kubernetes CI/CD with Tekton (Kamesh Sampath)",
+    },
 
 
     {
@@ -86,7 +86,7 @@ var question = {
   
    {
 
-    "question": "Would you be interested in an exclusive workshop at your Development Centers? If so, please provide us with a point of contact (name, email, and phone) so we can reach out</p>",
+    "question": "<p>Would you be interested in an exclusive workshop at your Development Centers? If so, please provide us with a point of contact (name, email, and phone) so we can reach out</p>",
   }
   ]
 
@@ -117,6 +117,7 @@ function isNumberKey(evt) {
 
 
 function phoneVerification() {
+ 
 //console.log("hi");
    document.getElementById("spinner").style.display="block";
   // document.getElementById("get").style.display="none";
@@ -135,6 +136,7 @@ function phoneVerification() {
                 post_phone();
             }
     //console.log(mobileNum);
+  
 }
 
 $("#mobilenum").keyup(function(event) {
@@ -146,14 +148,17 @@ $("#mobilenum").keyup(function(event) {
 var c = "";
 function post_phone(){
   $.ajax({
-    url:REGISTRATION_URL,
+    url:REGISTRATION_URL+"?phone_number="+mobileNum+"&event_name=testkonfhub-morefields1",
     type: "GET",
-    data: ({"Phone":mobileNum,"event_name":event_name}),
     contentType: "application/json",
     success: function (data) {
       document.getElementById("spinner").style.display="none";
-        console.log(data);
-        Tshirt=data.t_shirt;
+        if(data==400){
+          document.getElementById("error-area").style.display = "block";
+          return;
+        }
+        document.getElementById("error-area").style.display = "none";
+        Tshirt = data.t_shirt;
         email=data.name;
         phone=data.phone;
         company=data.organisation;
@@ -257,7 +262,7 @@ function getWriteFeedback()
 function end(){
   document.getElementById("questions").style.display="none";
   document.getElementById("end").style.display="block";
-  document.getElementById("tSize").innerHTML=Tshirt;
+  document.getElementById("tSize").innerHTML = Tshirt;
   document.getElementById("box-container").style.display="none";
   lastQuestion();
 }

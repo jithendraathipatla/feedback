@@ -88,7 +88,8 @@
                 <div class="form-area" style="margin-top:-5px;">
                     <div class="form-signin">
                       <div id="phone">
-                            <input type="tel" id="mobilenum" min="0" maxlength="10" name="txt_name" placeholder="Registered Mobile Number*" autofocus value="" onkeypress="return isNumberKey(event)"
+                          
+                            <input type="tel" id="mobilenum"  minlength="0" maxlength="10" name="txt_name" placeholder="Registered Mobile Number*" autofocus value="" onkeypress="return isNumberKey(event)"
                                 class="form-control" required style="margin-bottom:3px; border-radius: 0px; margin-bottom:40px;">
 
                             <input class="but button2" id="registerbtn" style="display:block;padding-left:0px;margin-left:45px;margin-bottom:10px;width:207px" onclick="phoneVerification()" type="button">
@@ -100,7 +101,7 @@
                                 margin-left: 73px;
                                 text-align: center;
                                 margin-top: 46px;"></a>
-
+                          
                           
                         </div>
 
@@ -214,9 +215,11 @@
      };
      
      phone.onpaste = cleanPhoneNumber
-      
+    
+         
       </script>
 
+    
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
