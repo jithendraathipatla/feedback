@@ -15,96 +15,82 @@ var question = {
 
       {
 
-          "question": "Overall how would you rate the event?",
+        "question": "KeyNote: Next Generation Microservices (Burr Sutter)",
       },
 
       {
 
-        "question": "What did you like best about the conference?",
+        "question": "9 steps to awesome with Kubernetes/OpenShift (Burr Sutter)",
     },
-
     {
 
-    "question": "Please rate the following aspects of the event:<p style=\"color: #ffff00;\">Date and time</p>",
-   },
-
-   {
-
-    "question": "Please rate the following aspects of the event: <p style=\"color: #ffff00;\"> Location</p>",
-   },
-
-   {
-
-    "question": "Please rate the following aspects of the event: <p style=\"color: #ffff00;\">Food and beverages</p>",
-   },
-
-   {
-
-    "question": "Please rate the following aspects of the event: <p style=\"color: #ffff00;\">Networking</p>",
-   },
-   {
-
-    "question": "Please rate the following aspects of the event: <p style=\"color: #ffff00;\">Venue</p>",
-   },
-  
-   {
-
-    "question": "Please rate the talk in general: <p style=\"color: #ffff00;\"> â€œKeynote (Kotlin/Anywhere)â€ by Hadi Hariri</p>",
+      "question": "What's the magic behind Quarkus, and how can I help (myself)? (Edson Yanaga)",
   },
-   
-
   {
 
-          "question": "Please rate the talk in general: <p style=\"color: #ffff00;\">â€œKotlin: Multi-platformâ€ by Amrit Sanjeev</p>",
-      },
+    "question": "Sail into cloud :: Introduction to Istio (Kamesh Sampath)",
+},
+{
 
- 
-      {
+  "question": "Dreaming of streaming with Reactive programming (Edson Yanaga)",
+},
+{
 
-        "question": "Please rate the talk in general: <p style=\"color: #ffff00;\">â€œKotlin DSL - letâ€™s express code in \'mini-language\'â€ by Adit Lal</p>",
-    },
+  "question": "Kubernetes serverless application architecture (Burr Sutter)",
+},
+{
+
+  "question": "Java microservices: Being a cloud ultra-native (Burr Sutter)",
+},
+{
+
+  "question": "Java microservices: Being a cloud ultra-native (Burr Sutter)",
+},
+{
+
+  "question": "Cloud-native integration patterns: Kubernetes and Camel K (Kamesh Sampath)",
+},
+{
+
+  "question": "Apache Kafka Streams and event-driven microservices/architecture (Edson Yanaga)",
+},
+{
+
+  "question": "Plumbing Kubernetes CI/CD with Tekton (Kamesh Sampath)",
+},
+
+
     {
 
-    "question": "Please rate the talk in general: <p style=\"color: #ffff00;\">â€œServer-Side Development with Ktorâ€ by Hadi Hariri</p>",
-    },
+    "question": "What other kinds of sessions would interest you?",
+   },
 
-      {
+   {
 
-        "question": "Please rate the talk in general: <p style=\"color: #ffff00;\">â€œBuilding cross-platform libraries with Kotlinâ€ by Gopalkrishna P Sharma</p>",
-      },
- 
- {
+    "question": "Invitation and registration process",
+   },
 
-        "question": "Please rate the talk in general: <p style=\"color: #ffff00;\">â€œLeveraging sealed classes in Kotlinâ€ by Sanchita Agarwal</p>",
-      },
- {
+   {
 
-        "question": "Please rate the talk in general: <p style=\"color: #ffff00;\">â€œJetpack Compose â€” Next Gen Kotlin UI Toolkit for Androidâ€ by Ragunath Jawahar</p>",
-      },
-      
-    {
-      "question": "Is there anything else youâ€™d like to share with us about Kotlin/ Everywhere 2019?"
-  },
+    "question": "Event facility",
+   },
 
-     {
-       "question": "<div style=\"margin-top:40px\">Did you attend the CodeLabs? <div style=\"margin-top:40px\"><button type=\"button\" class=\"but button2\" id=\"buttonyes\" style=\"padding:10px 20px\" onclick=\"proceedtocodelabs()\">Yes</button>  <button type=\"submit\" class=\"but button2\" id=\"buttonno\" style=\"padding:10px 20px\" onclick=\"proceedtoend()\">No</button></div>"
-     },
+   {
 
-      {
+    "question": "Event meals (lunch, breaks)",
+   },
+   {
 
-        "question": "Please rate the CodeLabs in general: <p style=\"color: #ffff00;\">â€œBuild your first Android app in Kotlinâ€ by Hadi Hariri</p>",
-     },
-
-     {
-
-      "question": "Please rate the CodeLabs in general: <p style=\"color: #ffff00;\">â€œKotlin Coroutinesâ€  by Amrit Sanjeev</p>",
-    },
+    "question": "Event logistics and communications",
+   },
   
+   {
 
-    {
+    "question": "Would you be interested in an exclusive workshop at your Development Centers? If so, please provide us with a point of contact (name, email, and phone) so we can reach out</p>",
+  }
+   
 
-      "question": "Please rate the CodeLabs in general: <p style=\"color: #ffff00;\">â€œRun a Spring Boot application on Google Compute Engineâ€  by Hadi Hariri</p>",
-    },
+  
 
      
   ]
@@ -229,11 +215,11 @@ function send_feedback(i){
 }
 function getAnswer()
 {   
-  //console.log( questionLength );
+  console.log( current );
     document.getElementById("feedbackquestion").style.display="none";
     var q = question.questions;
    
-    if(current== 1 || current == 14)
+    if(current== 11 || current== 16)
     {   
         document.getElementById("write").value="";
         document.getElementById("write").style.width="295px";
@@ -245,19 +231,7 @@ function getAnswer()
         document.getElementById("submitFeedback").style.display="block";
         document.getElementById("end").style.display="none";
     } 
-    else if(current==15)
-    {
-      
-      document.getElementById("questions").style.display="block";
-      document.getElementById("ques").innerHTML=q[current].question;
-      document.getElementById("emoji").style.display="none";
-      document.getElementById("butt").style.display="none";
-      document.getElementById("write").style.display="none";
-      document.getElementById("submitFeedback").style.display="none";
-      document.getElementById("end").style.display="none";
-      document.getElementById("buttonyes").style.marginTop ="30px";
-      document.getElementById("buttonno").style.marginTop ="30px";
-    }  
+  
     else{
         document.getElementById("questions").style.display="block";
         document.getElementById("ques").innerHTML=q[current].question;
@@ -293,7 +267,7 @@ function end(){
   document.getElementById("questions").style.display="none";
   document.getElementById("end").style.display="block";
   document.getElementById("tSize").innerHTML=Tshirt;
-
+  document.getElementById("box-container").style.display="none";
   lastQuestion();
 }
 
@@ -337,5 +311,6 @@ function proceedtocodelabs(){
 
 function proceedtoend(){
   document.getElementById("feedbackquestion").style.display="none";
+  
   end();
 }
