@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JetBrains Feedback</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="images/fav.ico" type="image/ico" sizes="16x16">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.24.min.js"></script>
+    <script src="main.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+    
+
+    <style>
+       
+        .data {
+            display: none;
+        }
+
+        .but {
+            background-color: #4CAF50;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s;
+            /* Safari */
+            transition-duration: 0.4s;
+        }
+
+        .button2 {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .button2:hover {
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.39);
+            text-decoration: none;
+            color:white;
+        }
+        .container{
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+             margin-top: auto;
+             margin-bottom: auto;
+        }
+        p {
+        margin: 0 10px 0px;
+     }
+
+    </style>
+</head>
+
+    <body opacity: 0.5 style="line-height: 1.2;background-color:black;margin:9px;">
+
+
+
+    <!--BEM naming convention is adhered to here -->
+        <br>
+
+        <div class="container formblock">
+
+            <div class="row"  style="background: linear-gradient(#05C1FD, #961F8C);">
+                <div class="col">
+                    <h4 class="text-center login-title wtitle" style="margin-right:0%"></h4>
+                    <br>
+                    <div id="title">
+                    <h1 class="text-center login-title qtitle" style="margin-top: 0px; margin-right: 0%;  margin-bottom: 21px;margin-top:20px; padding-top: 2%;padding-bottom: 2%; color: white; font-size:20px;">Kotlin/Everywhere Feedback</h1></div>
+                    <div style="margin-top:50px;margin-bottom:-0px;">
+                            <a href="https://www.jetbrains.com/" target="blank"> <img id="inserverless-img" class="profile-img" src="images/dev.png" alt="Serverless" width="80%" > </a>
+                        </div>
+
+
+
+
+
+                <!-- <img class="quiz-time" src="images/quiz-time.png" alt="Quiz Time"> -->
+                <div class="form-area" style="margin-top:-5px;">
+                    <div class="form-signin">
+                      <div id="phone">
+                            <input type="tel" id="mobilenum" min="0" maxlength="10" name="txt_name" placeholder="Registered Mobile Number*" autofocus value="" onkeypress="return isNumberKey(event)"
+                                class="form-control" required style="margin-bottom:3px; border-radius: 0px; margin-bottom:40px;">
+
+                            <input class="but button2" id="registerbtn" style="display:block;padding-left:0px;margin-left:45px;margin-bottom:10px;width:207px" onclick="phoneVerification()" type="button">
+                                <div style="margin-left: 110px; margin-top: -38px; color: white;" onclick="phoneVerification()"><i class="fa fa-spinner fa-spin" id="spinner" style="font-size: 16px; display: none; margin-left: 80px; margin-bottom:-17px;width:17px;"></i></i><span id="get" style="display:block" onclick="phoneVerification()" >Get Started</span></div>
+                                <input type="checkbox" checked style="margin-top:32px;"> <p style="color:white;margin-left: 18px;margin-top: -17px;font-size: 11px;text-align:justify;" >By submitting this form I agree to the <span style="color:black"><a href="https://www.jetbrains.com/company/privacy.html" target="_blank" style="color:aqua">JetBrains privacy policy</a></span>.</p>
+                            <a href="https://konfhub.com" target="_blank">  <img src="images/dev.png" style="width: 144px;
+                                height: 43px;
+                                /* float: right; */
+                                margin-left: 73px;
+                                text-align: center;
+                                margin-top: 46px;"></a>
+
+                          
+                        </div>
+
+                        <div id="feedbackquestion" class="col-md-12 text-center" style="display:none;">
+                            <div id="feedbackquestioncc">
+                                <table class="table" border="0">
+                                    
+                                    <tr>
+                                        <th style="">Name:</th>
+                                        <td><p id="name" style="float:left;color:snow"></p></td>
+                                    </tr>                
+                                        <tr>
+                                            <th style="">Company:</th>
+                                            <td><p id="Comp_name" style="float:left;color:snow;font-size: 15px;"></p></td>
+                                        </tr>
+                                        <tr><td><td></td></td></tr>
+                                    </table>   
+                                <a class="but button2" id="registerbtn" style="display:block;padding-left:10px;" onclick="getAnswer()">
+                                    <i class="fa fa-spinner fa-spin" id="spinner" style="font-size:14px;display: none; margin-left:40px;"></i>    </i><span id="start">Start</a>
+                            
+                              
+                           
+
+                            </div>
+                        </div>
+                        <center><label class="error-area" id="error-area" style="display:none;color:red; margin-top:-218px;">Please enter your registered number!</label></center>
+                     <div id="box-container">
+                        <div id="questions" style="display:none">
+                            <div id="question-div">
+                            <p id="ques" style="text-align:center; font-size:21px;"></p></div>
+                            </br>
+                            <div id="emoji">
+                            <div class="grid-container">
+                               <div>
+                                <img src="images/svg_image/5.png"  id="op5" class="grid-item"  onclick="next('5')" style=""> </div>
+                               <div>
+                                <img src="images/svg_image/4.png"  id="op4" class="grid-item" onclick="next('4')" style=" "> </div>
+                                <div>
+                                <img src="images/svg_image/2.png" id="op3" class="grid-item" onclick="next('3')" style=""> </div>
+                                <div><br>
+                                <img src="images/svg_image/3.png" id="op2" class="grid-item" onclick="next('2')" style=" margin-left: 45% ; margin-top:7%"> </div>
+                                <div>
+                                <div class="grid-item" style="display:none;"> </div></div>
+                                <div><br>
+                                <img src="images/svg_image/1.png"  id="op1" class="grid-item" onclick="next('1')" style=" margin-left: -45% ;margin-top:7%"> </div>
+                            
+                                
+                             </div>
+                        </div>
+                        <div id="butt" style="display:none;">
+                                <center>
+                                        <input type="button"  class="but button2" value="Very likely" style="display:block;" onclick="next('very likely')">
+                                        <input type="button"  id="button3" class="but button2" value="Likely" style="display:block;" onclick="next('likely')">
+                                        <input type="button"  id="button4" class="but button2" value="Not likely" style="display:block;" onclick="next('not likely')">
+                                </center>
+                                
+                        </div>
+                        <textarea rows="4" cols="40" style="display: none;margin-left: 25px;" id="write"> </textarea>
+                        <center>
+                            
+                        <input type="button" id="submitFeedback" class="but button2" value="Submit" style="display:none;" onclick="getWriteFeedback()"></center>
+                        <p id="error_area" style="color:aliceblue; display:none;">Please provide your input here</p>
+                    </div>
+                     <div id="end" style="display:none"><p style="font-size:36px;color:white; text-align:center;">
+                        THANK YOU!
+                     </p>
+                    <p style="margin-top:8%;font-size: 16px;">
+                        <center><font style="color:white;">Please collect your T-shirt at the registration desk.</font></center>
+
+                        <center style="margin-top:30px;"><font style="color:white;">Your T-shirt size:</font></center> <div id="tSize" style="font-size:24px;color:orange;margin-left: 225px;
+                        margin-top: -22px;"></div>
+
+                        <a href="https://konfhub.com" target="_blank">  <img src="images/dev.png" style="width: 144px;
+                            height: 43px;
+                            /* float: right; */
+                            margin-left: 89px;
+                            text-align: center;
+                            margin-top: 147px;"></a>
+                    </p>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <script>
+       
+            var phone = document.getElementById('mobilenum'),
+         cleanPhoneNumber;
+     
+     cleanPhoneNumber= function(e) {
+         e.preventDefault();
+         var pastedText = '';
+         if (window.clipboardData && window.clipboardData.getData) { // IE
+             pastedText = window.clipboardData.getData('Text');
+           } else if (e.clipboardData && e.clipboardData.getData) {
+             pastedText = e.clipboardData.getData('text/plain');
+           }
+         this.value = pastedText.replace(/\D/g, '');
+     };
+     
+     phone.onpaste = cleanPhoneNumber
+      
+      </script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    </body>
+
+</html>
