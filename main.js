@@ -39,12 +39,7 @@ var question = {
   "question": "Kubernetes serverless application architecture (Burr Sutter)",
    },
    {
-
-  "question": "Java microservices: Being a cloud ultra-native (Burr Sutter)",
-   },
-   {
-
-  "question": "Java microservices: Being a cloud ultra-native (Burr Sutter)",
+   "question": "Java microservices: Being a cloud ultra-native (Burr Sutter)",
    },
   {
 
@@ -216,7 +211,7 @@ function getAnswer()
     document.getElementById("feedbackquestion").style.display="none";
     var q = question.questions;
    
-    if(current== 11 || current== 16)
+    if(current== 11 || current== 15)
     {   
         document.getElementById("write").value="";
         document.getElementById("write").style.width="295px";
