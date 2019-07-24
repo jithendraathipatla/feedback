@@ -5,10 +5,10 @@ var email;
 var company;
 var Tshirt;
 var bookingId= "";
-var event_name = "testkonfhub-ruby-techb7a8a92c";
+var event_name = "redhatdevnationlivebangalore20192854705b";
 
-var REGISTRATION_URL= 'https://ef8ayu2u81.execute-api.us-east-2.amazonaws.com/app/feedback';
-var UPDATE_FEEDBACK_URL='https://ef8ayu2u81.execute-api.us-east-2.amazonaws.com/app/feedback';
+var REGISTRATION_URL= ' https://j11jxo3z96.execute-api.ap-south-1.amazonaws.com/app/feedback';
+var UPDATE_FEEDBACK_URL=' https://j11jxo3z96.execute-api.ap-south-1.amazonaws.com/app/feedback';
 var question = {
     
   "questions": [
@@ -273,7 +273,7 @@ var q=question.questions;
 
 function lastQuestion(){
   $.ajax({
-    url:"https://ef8ayu2u81.execute-api.us-east-2.amazonaws.com/app/goodies",
+    url:"https://j11jxo3z96.execute-api.ap-south-1.amazonaws.com/app/goodies",
     type: "PUT",
     data: JSON.stringify({"event_name":event_name, "booking_id": bookingId, "last_question": 1}),
     contentType: "application/json",
