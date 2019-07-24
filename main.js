@@ -5,7 +5,7 @@ var email;
 var company;
 var Tshirt;
 var bookingId= "";
-var event_name = "testkonfhub-genric6756c1f3";
+var event_name = "testkonfhub-ruby-techb7a8a92c";
 
 var REGISTRATION_URL= 'https://ef8ayu2u81.execute-api.us-east-2.amazonaws.com/app/feedback';
 var UPDATE_FEEDBACK_URL='https://ef8ayu2u81.execute-api.us-east-2.amazonaws.com/app/feedback';
@@ -143,7 +143,7 @@ $("#mobilenum").keyup(function(event) {
 var c = "";
 function post_phone(){
   $.ajax({
-    url:REGISTRATION_URL+"?phone_number="+mobileNum+"&event_name=testkonfhub-php-ban963c6ec2",
+    url:REGISTRATION_URL+"?phone_number="+mobileNum+"&event_name="+event_name+"",
     type: "GET",
     contentType: "application/json",
     success: function (data) {
