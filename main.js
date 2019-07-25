@@ -20,6 +20,11 @@ var question = {
 
       {
 
+        "question": "Coding that sparks joy with Quarkus  (Edson Yanaga)",
+      },
+
+      {
+
         "question": "9 steps to awesome with Kubernetes/OpenShift (Burr Sutter)",
       },
     {
@@ -211,7 +216,7 @@ function getAnswer()
     document.getElementById("feedbackquestion").style.display="none";
     var q = question.questions;
    
-    if(current== 11 || current== 15)
+    if(current== 11 || current== 16)
     {   
         document.getElementById("write").value="";
         document.getElementById("write").style.width="295px";
